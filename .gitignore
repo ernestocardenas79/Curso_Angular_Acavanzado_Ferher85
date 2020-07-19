@@ -45,4 +45,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
+
 /src/assets/plugins/*
+!/src/assets/plugins/bootstrap/
+!src/assets/plugins/sticky-kit-master/
+!src/assets/plugins/sparkline/
+!src/assets/plugins/styleswitcher/
