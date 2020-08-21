@@ -1,1 +1,35 @@
-<p>grafica1 works!</p>
+<div class="row">
+  <div class="col-6">
+    <app-donougth
+      titulo="Sales"
+      [labels]="salesChartLabels"
+      [data]="salesChartData"
+    ></app-donougth>
+  </div>
+  <div class="col-6">
+    <app-donougth
+      titulo="Gastos"
+      [labels]="gastosChartLabels"
+      [data]="gastosChartData"
+    ></app-donougth>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <app-donougth
+      titulo="Facturas"
+      [labels]="facturasChartLabels"
+      [data]="facturasChartData"
+    >
+    </app-donougth>
+  </div>
+
+  <div class="col-6">
+    <app-donougth
+      titulo="Pendientes"
+      [labels]="pendientesChartLabels"
+      [data]="pendientesChartData"
+    ></app-donougth>
+  </div>
+</div>

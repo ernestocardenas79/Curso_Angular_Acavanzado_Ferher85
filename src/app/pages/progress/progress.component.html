@@ -23,7 +23,21 @@
             aria-valuenow="85"
             aria-valuemin="0"
             aria-valuemax="100"
-            style="width: 85%; height: 10px;"
+            style="height: 10px;"
+            [style.width]="getProgreso1"
+            role="progressbar"
+          >
+            <span class="sr-only">85% Complete (success)</span>
+          </div>
+        </div>
+        <div class="progress m-t-20">
+          <div
+            class="progress-bar bg-info progress-bar-striped"
+            aria-valuenow="85"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style="height: 10px;"
+            [style.width]="getProgreso2"
             role="progressbar"
           >
             <span class="sr-only">85% Complete (success)</span>
@@ -38,25 +52,24 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">
-                <i class="fa fa-minus"></i>
-            </button>
-          </span>
-          <input type="text" class="form-control" placeholder="Product name" />
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">
-                <i class="fa fa-plus"></i>
-            </button>
-          </span>
-        </div>
+        <app-incrementador
+          (valorSalida)="progreso1 = $event"
+          [progreso]="progreso1"
+        ></app-incrementador>
       </div>
     </div>
   </div>
   <div class="col-6">
     <div class="card">
-      <div class="card-body">2</div>
+      <div class="card-body">
+        <app-incrementador
+          (valorSalida)="progreso2 = $event"
+          [className]="'btn btn-warning'"
+          [progreso]="progreso2"
+        ></app-incrementador>
+      </div>
     </div>
   </div>
 </div>
+
+{{progreso1}}
