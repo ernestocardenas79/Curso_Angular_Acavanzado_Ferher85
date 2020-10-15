@@ -46,6 +46,14 @@ testem.log
 Thumbs.db
 
 /src/assets/scss/*
+!/src/assets/scss/icons/font-awesome/*
+!/src/assets/scss/icons/simple-line-icons/
+!/src/assets/scss/icons/weather-icons/
+!/src/assets/scss/icons/linea-icons/
+!/src/assets/scss/icons/themify-icons/
+!/src/assets/scss/icons/flag-icon-css/
+!/src/assets/scss/icons/material-design-iconic-font/
+
 /src/assets/plugins/*
 !/src/assets/plugins/bootstrap/
 !/src/assets/plugins/sticky-kit-master/
