@@ -45,8 +45,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/src/assets/scss/*
-!/src/assets/scss/icons/font-awesome/*
+# /src/assets/scss/*
+
+/src/assets/scss/icons/*
+/src/assets/scss/icons/font-awesome/
 !/src/assets/scss/icons/simple-line-icons/
 !/src/assets/scss/icons/weather-icons/
 !/src/assets/scss/icons/linea-icons/
