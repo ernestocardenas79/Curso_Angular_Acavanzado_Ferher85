@@ -1,0 +1,23 @@
+<h2>Por País</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <cn-pais-input
+      placeholder="Buscar País"
+      (onEnter)="buscar($event)"
+      (onDebounce)="sugerencias($event)"
+    ></cn-pais-input>
+  </div>
+</div>
+
+<hr />
+
+<div *ngIf="hayError" class="alert alert-danger">
+  No se encontró nada con el término {{ termino }}
+</div>
+
+<div *ngIf="paises.length > 0" class="row">
+  <div class="col">
+    <cn-pais-tabla [paises]="paises"></cn-pais-tabla>
+  </div>
+</div>

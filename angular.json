@@ -118,9 +118,125 @@
           }
         }
       }
+    },
+    "paisesApp": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/paises-app",
+      "sourceRoot": "projects/paises-app/src",
+      "prefix": "cn",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/paisesApp",
+            "index": "projects/paises-app/src/index.html",
+            "main": "projects/paises-app/src/main.ts",
+            "polyfills": "projects/paises-app/src/polyfills.ts",
+            "tsConfig": "projects/paises-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/paises-app/src/favicon.ico",
+              "projects/paises-app/src/assets"
+            ],
+            "styles": [
+              "projects/paises-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/paises-app/src/environments/environment.ts",
+                  "with": "projects/paises-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "paisesApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "paisesApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "paisesApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/paises-app/src/test.ts",
+            "polyfills": "projects/paises-app/src/polyfills.ts",
+            "tsConfig": "projects/paises-app/tsconfig.spec.json",
+            "karmaConfig": "projects/paises-app/karma.conf.js",
+            "assets": [
+              "projects/paises-app/src/favicon.ico",
+              "projects/paises-app/src/assets"
+            ],
+            "styles": [
+              "projects/paises-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/paises-app/tsconfig.app.json",
+              "projects/paises-app/tsconfig.spec.json",
+              "projects/paises-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/paises-app/e2e/protractor.conf.js",
+            "devServerTarget": "paisesApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "paisesApp:serve:production"
+            }
+          }
+        }
+      }
     }
   },
-  "defaultProject": "adminpro",
+  "defaultProject": "paisesApp",
   "cli": {
     "analytics": "6656323f-acb7-48c7-81b3-779af210c2b2"
   }
