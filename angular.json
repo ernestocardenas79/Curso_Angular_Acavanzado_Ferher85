@@ -118,6 +118,125 @@
           }
         }
       }
+    },
+    "app-pipes": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/app-pipes",
+      "sourceRoot": "projects/app-pipes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-pipes",
+            "index": "projects/app-pipes/src/index.html",
+            "main": "projects/app-pipes/src/main.ts",
+            "polyfills": "projects/app-pipes/src/polyfills.ts",
+            "tsConfig": "projects/app-pipes/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/app-pipes/src/favicon.ico",
+              "projects/app-pipes/src/assets"
+            ],
+            "styles": [
+              "projects/app-pipes/src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/vela-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-pipes/src/environments/environment.ts",
+                  "with": "projects/app-pipes/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "app-pipes:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "app-pipes:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-pipes:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-pipes/src/test.ts",
+            "polyfills": "projects/app-pipes/src/polyfills.ts",
+            "tsConfig": "projects/app-pipes/tsconfig.spec.json",
+            "karmaConfig": "projects/app-pipes/karma.conf.js",
+            "assets": [
+              "projects/app-pipes/src/favicon.ico",
+              "projects/app-pipes/src/assets"
+            ],
+            "styles": [
+              "projects/app-pipes/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/app-pipes/tsconfig.app.json",
+              "projects/app-pipes/tsconfig.spec.json",
+              "projects/app-pipes/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/app-pipes/e2e/protractor.conf.js",
+            "devServerTarget": "app-pipes:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app-pipes:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "adminpro",
