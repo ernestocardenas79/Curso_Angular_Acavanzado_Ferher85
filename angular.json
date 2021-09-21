@@ -143,7 +143,8 @@
               "projects/app-pipes/src/styles.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/vela-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": []
           },

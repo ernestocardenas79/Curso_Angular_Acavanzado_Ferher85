@@ -3,7 +3,10 @@
 html,
 body {
   margin: 10px;
-  color: var(--surface-600);
   background-color: var(--surface-b);
   font-family: var(--font-family);
+}
+
+.text-layout {
+  color: var(--text-color);
 }
