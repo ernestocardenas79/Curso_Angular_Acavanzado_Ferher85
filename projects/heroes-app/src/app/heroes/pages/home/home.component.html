@@ -1,3 +1,10 @@
-<h1>Heores App</h1>
-<hr>
-<router-outlet></router-outlet>
+<mat-drawer-container>
+    <mat-sidenav #sidenav>
+        <h1>Side Nav</h1>
+    </mat-sidenav>
+    <mat-toolbar>
+        <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+</mat-drawer-container>
