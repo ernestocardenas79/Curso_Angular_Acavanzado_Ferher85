@@ -142,6 +142,7 @@
               "projects/heroes-app/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "projects/heroes-app/src/styles.css"
             ],
             "scripts": []
@@ -205,6 +206,7 @@
               "projects/heroes-app/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "projects/heroes-app/src/styles.css"
             ],
             "scripts": []
