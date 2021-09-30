@@ -1,2 +1,27 @@
-<p>listado works!</p>
-<a routerLink="">Regresar</a>
+<h1>LIstado de Héroes</h1>
+<mat-divider></mat-divider>
+<br />
+
+<div fxLayout="row wrap">
+  <div fxFlex="20">
+    <mat-card *ngFor="let hero of heroes">
+      <mat-card-header>
+        <mat-card-title>{{ hero.superhero }}</mat-card-title>
+        <mat-card-subtitle>{{ hero.alter_ego }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/heroes/{{ hero.id }}.jpg" alt="" />
+      <mat-card-content>
+        <h3>{{ hero.publisher }}</h3>
+        <p>
+          <strong>Primera aparición</strong> {{ hero.first_appearance }}
+          <br />
+          <strong>Personajes:</strong>{{ hero.characters }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="warn"></button>
+        <button mat-button color="info">Editar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
