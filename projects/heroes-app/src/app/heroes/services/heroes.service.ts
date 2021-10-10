@@ -25,4 +25,16 @@ export class HeroesService {
       `${this.basrUrl}/heroes?q=${termino}&_limit=6`
     );
   }
+
+  agregarHeroe(heroe: Heroe) {
+    return this.http.post<Heroe>(`${this.basrUrl}/heroes`, heroe);
+  }
+
+  actualizarHeroe(heroe: Heroe) {
+    return this.http.put<Heroe>(`${this.basrUrl}/heroes/${heroe.id}`, heroe);
+  }
+
+  borrarHeroe(id: string) {
+    return this.http.delete(`${this.basrUrl}/heroes/${id}`);
+  }
 }
