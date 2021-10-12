@@ -118,6 +118,122 @@
           }
         }
       }
+    },
+    "formTApp": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/form-tapp",
+      "sourceRoot": "projects/form-tapp/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/formTApp",
+            "index": "projects/form-tapp/src/index.html",
+            "main": "projects/form-tapp/src/main.ts",
+            "polyfills": "projects/form-tapp/src/polyfills.ts",
+            "tsConfig": "projects/form-tapp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/form-tapp/src/favicon.ico",
+              "projects/form-tapp/src/assets"
+            ],
+            "styles": [
+              "projects/form-tapp/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/form-tapp/src/environments/environment.ts",
+                  "with": "projects/form-tapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "formTApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "formTApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "formTApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form-tapp/src/test.ts",
+            "polyfills": "projects/form-tapp/src/polyfills.ts",
+            "tsConfig": "projects/form-tapp/tsconfig.spec.json",
+            "karmaConfig": "projects/form-tapp/karma.conf.js",
+            "assets": [
+              "projects/form-tapp/src/favicon.ico",
+              "projects/form-tapp/src/assets"
+            ],
+            "styles": [
+              "projects/form-tapp/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form-tapp/tsconfig.app.json",
+              "projects/form-tapp/tsconfig.spec.json",
+              "projects/form-tapp/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/form-tapp/e2e/protractor.conf.js",
+            "devServerTarget": "formTApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "formTApp:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "adminpro",
