@@ -1,0 +1,85 @@
+<h2>Validaciones Reactivas</h2>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="submit()">
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre del usuario"
+            formControlName="nombre"
+          />
+          <span *ngIf="campoNovalido('nombre')" class="form-text text-danger">
+            Debe de ser en formato de nombre y apellido
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email del usuario"
+            formControlName="email"
+          />
+          <span *ngIf="campoNovalido('email')" class="form-text text-danger">
+            El email es obligatorio
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">User Name</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Código del usuario"
+            formControlName="userName"
+          />
+          <span *ngIf="campoNovalido('userName')" class="form-text text-danger">
+            El username no puede ser strider
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-9">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password de su cuenta"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Confirmar</label>
+        <div class="col-sm-9">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirmar el password"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary float-end">Crear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h2>Form Valid: {{ registerForm.valid }}</h2>
+<h5>Nombre: {{ registerForm.controls.nombre.errors | json }}</h5>
+<h5>email: {{ registerForm.controls.email.errors | json }}</h5>
+<h5>userName: {{ registerForm.controls.userName.errors | json }}</h5>
