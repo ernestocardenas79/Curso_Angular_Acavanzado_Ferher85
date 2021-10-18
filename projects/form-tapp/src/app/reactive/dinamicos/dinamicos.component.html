@@ -1,1 +1,83 @@
-<p>dinamicos works!</p>
+<h2>
+  Reactivos:
+  <small>Dinámicos </small>
+  <hr />
+</h2>
+
+<form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+  <div class="mb-3 row">
+    <label class="col-sm-3-col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nombre de la persona"
+        formControlName="nombre"
+      />
+      <span *ngIf="campoEsValido('nombre')" class="form-text text-danger"
+        >Este campo es obligatorio</span
+      >
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-3-col-form-label">Agregar</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Agregar favorito"
+          [formControl]="nuevoFavorito"
+          (keyup.enter)="agregarFavorito()"
+        />
+        <button
+          (click)="agregarFavorito()"
+          type="submit"
+          class="btn btn-outline-primary"
+          type="button"
+        >
+          Agregar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-3-col-form-label">Favoritos</label>
+    <div class="col-sm-9" formArrayName="favoritos">
+      <div
+        *ngFor="let favorito of getfavoritosArr().controls; let i = index"
+        class="input-group mb-1"
+      >
+        <input [formControlName]="i" class="form-control" required />
+
+        <button
+          (click)="eliminar(i)"
+          class="btn btn-outline-danger"
+          type="button"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <button class="btn btn-primary float-end">Guardar</button>
+    </div>
+  </div>
+</form>
+
+<span>Valid</span>
+<pre>{{ miFormulario.valid }}</pre>
+
+<br />
+<pre>{{ miFormulario.value | json }}</pre>
+<br />
+
+<br />
+<span>Agregar Juego</span>
+<pre>{{ nuevoFavorito.valid }}</pre>
+<pre>{{ nuevoFavorito.value }}</pre>
