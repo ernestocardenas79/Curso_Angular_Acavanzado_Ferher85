@@ -77,7 +77,7 @@ export class RegisterComponent implements OnInit {
     if (errors?.pattern)
       return 'El valor ingresado no tiene formato de correo electronico';
 
-    if (errors?.emailTomado) return 'El email ya fur tomado ';
+    if (errors?.emailTomado) return 'El email ya fue tomado ';
 
     return '';
   }
